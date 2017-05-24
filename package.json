@@ -1,0 +1,19 @@
+{
+  "name": "mazimd-api",
+  "version": "0.0.0",
+  "description": "The api server for mazimd",
+  "main": "lib/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xcatliu/mazimd-api.git"
+  },
+  "author": "xcatliu <xcatliu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xcatliu/mazimd-api/issues"
+  },
+  "homepage": "https://github.com/xcatliu/mazimd-api#readme"
+}
