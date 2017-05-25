@@ -2,7 +2,10 @@ import * as path from 'path';
 
 import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
+import * as renderer from 'koa-hbs-renderer';
+import * as mount from 'koa-mount';
 import * as Router from 'koa-router';
+import * as serveStatic from 'koa-static';
 
 import config from './config';
 
@@ -10,7 +13,7 @@ import connectMongoose from './utils/connectMongoose';
 
 import errorCatcher from './middlewares/errorCatcher';
 
-import { post as postPages } from './controllers/pages';
+import { post as postApiPages } from './controllers/api/pages';
 import { get as getPagesId } from './controllers/pages/id';
 
 connectMongoose((err) => {
@@ -22,11 +25,24 @@ connectMongoose((err) => {
   console.log(`Successfully connect to ${config.db}`);
 
   const router = new Router();
+  router.get('/', (ctx) => ctx.render('index'));
+  router.get('/pages/new', (ctx) => ctx.render('pages/new', {
+    css: [
+      '/public/css/simplemde-theme-base/simplemde-theme-base.min.css',
+    ],
+  }));
   router.get('/pages/:id', getPagesId);
-  router.post('/pages', bodyParser(), postPages);
+  router.post('/api/pages', bodyParser(), postApiPages);
 
   const app = new Koa();
+  app.use(renderer({
+    paths: {
+      views: path.resolve(__dirname, 'views'),
+      partials: path.resolve(__dirname, 'views/partials'),
+    },
+  }));
   app.use(errorCatcher());
+  app.use(mount('/public', serveStatic('./public')));
   app.use(router.routes());
 
   app.listen(config.port, () => {

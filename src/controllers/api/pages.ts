@@ -1,5 +1,5 @@
-import Page from '../models/page';
-import createError from '../utils/createError';
+import Page from '../../models/page';
+import createError from '../../utils/createError';
 
 const post = async (ctx) => {
   if (!ctx.request.body) {

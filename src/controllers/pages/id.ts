@@ -8,15 +8,14 @@ const get = async (ctx) => {
   }
 
   return await new Promise((resolve, reject) => {
-    Page.find({ id }, (err, pages) => {
+    Page.find({ id }, async (err, pages) => {
       if (err) {
         return reject(err);
       }
       if (Array.isArray(pages) && pages.length > 0) {
-        ctx.body = {
-          id,
+        await ctx.render('pages/id', {
           content: pages[0].content,
-        };
+        });
         return resolve();
       }
       return reject(createError(404, 'Not Found'));
