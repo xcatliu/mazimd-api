@@ -2,12 +2,6 @@ const gulp = require('gulp');
 const path = require('path');
 const runSequence = require('run-sequence');
 const rimraf = require('rimraf');
-const browserify = require('browserify');
-const uglify = require('gulp-uglify');
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
-const sourcemaps = require('gulp-sourcemaps');
-const gutil = require('gulp-util');
 
 const ts = require('gulp-typescript');
 const tsProject = ts.createProject('tsconfig.json');
