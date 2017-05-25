@@ -1,7 +1,8 @@
+import * as path from 'path';
+
 import * as Koa from 'koa';
 import * as bodyParser from 'koa-bodyparser';
 import * as Router from 'koa-router';
-import * as path from 'path';
 
 import config from './config';
 
