@@ -42,7 +42,7 @@ connectMongoose((err) => {
     },
   }));
   app.use(errorCatcher());
-  app.use(mount('/public', serveStatic('./public')));
+  app.use(mount('/public', serveStatic('./lib/public')));
   app.use(router.routes());
 
   app.listen(config.port, () => {
