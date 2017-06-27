@@ -1,3 +1,4 @@
+const exec = require('child_process').exec;
 const gulp = require('gulp');
 const path = require('path');
 const runSequence = require('run-sequence');
@@ -17,6 +18,20 @@ const tsProject = ts.createProject('tsconfig.json');
 
 const SRC_DIR = path.resolve(__dirname, 'src');
 const LIB_DIR = path.resolve(__dirname, 'lib');
+
+gulp.task('default', () => {
+  runSequence('build', 'serve');
+
+  console.log(`Watching ${SRC_DIR}/public/**/*.ts`)
+  gulp.watch(`${SRC_DIR}/public/js/**/*.ts`, () => {
+    rimraf.sync(`${LIB_DIR}/public/js/*`);
+    runSequence('build:browserify');
+  });
+  gulp.watch(`${SRC_DIR}/public/css/**/*`, () => {
+    rimraf.sync(`${LIB_DIR}/public/css/*`);
+    runSequence('build:copy-css');
+  })
+});
 
 gulp.task('build', (callback) => {
   runSequence('clean:lib', 'build:ts', 'build:copy-views', 'build:browserify', 'build:copy-css', callback);
@@ -57,13 +72,22 @@ gulp.task('build:browserify', () => {
 });
 
 gulp.task('build:copy-css', (callback) => {
-  gulp.src([
-    `${SRC_DIR}/**/*.css`,
-    `${SRC_DIR}/**/*.css.map`,
-  ]).pipe(gulp.dest(LIB_DIR))
-  .on('end', callback);
+  gulp.src(`${SRC_DIR}/public/css/**/*`)
+    .pipe(gulp.dest(`${LIB_DIR}/public/css`))
+    .on('end', callback);
 });
 
 gulp.task('clean:lib', () => {
   rimraf.sync(`${LIB_DIR}/*`);
+});
+
+gulp.task('serve', () => {
+  const cp = exec('node lib/app');
+  cp.stdout.pipe(process.stdout);
+  cp.stderr.pipe(process.stderr);
+});
+
+process.on('SIGINT', () => {
+  console.log('Successfully closd ' + process.pid);
+  process.exit(1);
 });

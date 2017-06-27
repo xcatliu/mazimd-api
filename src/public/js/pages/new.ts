@@ -15,7 +15,46 @@ function createNewPage(content, callback) {
 }
 
 const simplemde = new SimpleMDE({
+  autoDownloadFontAwesome: false,
+  autofocus: true,
+  autosave: {
+    enabled: true,
+    uniqueId: 'mazimd',
+  },
   element: document.getElementById('mazimd-textarea'),
+  indentWithTabs: false,
+  initialValue: 'Hello World',
+  insertTexts: {
+    image: ['![](http://', ')']
+  },
+  placeholder: 'Hello World',
+  spellChecker: false,
+  status: false,
+  styleSelectedText: false,
+  toolbar: [
+    'bold',
+    'italic',
+    'strikethrough',
+    '|',
+    'heading',
+    'code',
+    'quote',
+    'unordered-list',
+    'ordered-list',
+    '|',
+    'link',
+    'image',
+    'table',
+    '|',
+    {
+      name: 'about',
+      action: function customFunction(editor){
+          window.open('http://github.com/xcatliu/mazimd', '_blank');
+      },
+      className: "fa fa-info",
+      title: "关于 码字 md",
+    }
+  ]
 });
 
 // var submit = document.getElementById('submit');

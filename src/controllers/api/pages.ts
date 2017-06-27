@@ -1,5 +1,6 @@
 import Page from '../../models/page';
 import createError from '../../utils/createError';
+import generateUniqueId from '../../utils/generateUniqueId';
 
 const post = async (ctx) => {
   if (!ctx.request.body) {
@@ -17,35 +18,17 @@ const post = async (ctx) => {
   }
 
   const page = new Page({
+    id: generateUniqueId(),
     content: ctx.request.body.content,
   });
-  const id = page.contentToMd5();
-  page.id = id;
 
-  return await new Promise((resolve, reject) => {
-    Page.find({ id }, (err, pages) => {
-      if (err) {
-        return reject(err);
-      }
-      if (Array.isArray(pages) && pages.length > 0) {
-        ctx.body = {
-          id,
-          content: pages[0].content,
-        };
-        return resolve();
-      }
-
-      page.save((error) => {
-        if (error) {
-          return reject(error);
-        }
-        ctx.body = {
-          id,
-          content: page.content,
-        };
-        return resolve();
-      });
-    });
+  return await page.save().then((savedPage) => {
+    ctx.body = {
+      id: savedPage.id,
+      content: savedPage.content,
+    };
+  }, (error) => {
+    return Promise.reject(createError(500, error.message));
   });
 };
 

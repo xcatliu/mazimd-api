@@ -28,7 +28,9 @@ connectMongoose((err) => {
   router.get('/', (ctx) => ctx.render('index'));
   router.get('/pages/new', (ctx) => ctx.render('pages/new', {
     css: [
+      '/public/css/font-awesome-4.7.0/css/font-awesome.min.css',
       '/public/css/simplemde-theme-base/simplemde-theme-base.min.css',
+      '/public/css/new.css',
     ],
   }));
   router.get('/pages/:id', getPagesId);

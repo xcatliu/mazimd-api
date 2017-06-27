@@ -4,9 +4,9 @@
   "description": "The api server for mazimd",
   "main": "lib/app.js",
   "scripts": {
-    "start": "npm run build && npm run serve",
+    "start": "gulp",
     "build": "gulp build",
-    "serve": "node lib/app",
+    "serve": "gulp serve",
     "test": "npm run lint",
     "lint": "tslint 'src/**/*.ts'"
   },
@@ -28,7 +28,6 @@
     "koa-mount": "^3.0.0",
     "koa-router": "^7.2.0",
     "koa-static": "^3.0.0",
-    "md5": "^2.2.1",
     "mongoose": "^4.10.2",
     "simplemde": "^1.11.2",
     "superagent": "^3.5.2"
@@ -40,7 +39,6 @@
     "@types/koa-mount": "^2.0.18",
     "@types/koa-router": "^7.0.22",
     "@types/koa-static": "^2.0.22",
-    "@types/md5": "^2.1.32",
     "@types/mongoose": "^4.7.13",
     "@types/simplemde": "^1.11.6",
     "@types/superagent": "^2.0.36",
