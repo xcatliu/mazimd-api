@@ -49,6 +49,8 @@ const post = async (ctx) => {
       content: savedPage.content,
       created_at: savedPage.created_at,
     };
+    // 201 Created
+    ctx.status = 201;
   }, (error) => {
     return Promise.reject(createError(500, error.message));
   });
