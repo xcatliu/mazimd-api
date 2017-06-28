@@ -10,8 +10,9 @@ import connectMongoose from './utils/connectMongoose';
 
 import errorCatcher from './middlewares/errorCatcher';
 
-import { post as postPages } from './controllers/pages';
+import { get as getIndex } from './controllers/index';
 import { get as getPagesId } from './controllers/pages/id';
+import { post as postPages } from './controllers/pages';
 
 connectMongoose((err) => {
   if (err) {
@@ -22,6 +23,7 @@ connectMongoose((err) => {
   console.log(`Successfully connect to ${config.db}`);
 
   const router = new Router();
+  router.get('/', getIndex);
   router.get('/pages/:id', getPagesId);
   router.post('/pages', bodyParser(), postPages);
 

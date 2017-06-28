@@ -2,7 +2,7 @@
 
 The api server for mazimd
 
-https://api.mazimd.com
+http://api.mazimd.com
 
 ## Getting Started
 
@@ -28,11 +28,11 @@ Status: 200 OK
 
 ```json
 {
-  "url": "https://api.mazimd.com/pages/38rduve91",
-  "html_url": "https://mazimd.com/pages/38rduve91",
-  "id": "38rduve91",
+  "url": "http://api.mazimd.com/pages/1gyf5gloc",
+  "html_url": "http://mazimd.com/pages/1gyf5gloc",
+  "id": "1gyf5gloc",
   "content": "# Hello World",
-  "created_at": "2017-06-28T02:54:19.963Z"
+  "created_at": "2017-06-28T06:56:17.244Z"
 }
 ```
 
@@ -59,14 +59,10 @@ Status: 201 Created
 
 ```json
 {
-  "url": "https://api.mazimd.com/pages/38rduve91",
-  "html_url": "https://mazimd.com/pages/38rduve91",
-  "id": "38rduve91",
-  "owner": {
-    "id": "xcatliu",
-    "avatar_url": "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
-  },
+  "url": "http://api.mazimd.com/pages/1gyf5gloc",
+  "html_url": "http://mazimd.com/pages/1gyf5gloc",
+  "id": "1gyf5gloc",
   "content": "# Hello World",
-  "created_at": "2017-06-28T02:54:19.963Z"
+  "created_at": "2017-06-28T06:56:17.244Z"
 }
 ```
