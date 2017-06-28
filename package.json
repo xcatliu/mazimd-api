@@ -23,39 +23,19 @@
   "dependencies": {
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
-    "koa-hbs": "^0.9.0",
-    "koa-hbs-renderer": "^0.1.6",
-    "koa-mount": "^3.0.0",
     "koa-router": "^7.2.0",
-    "koa-static": "^3.0.0",
-    "mongoose": "^4.10.2",
-    "simplemde": "^1.11.2",
-    "superagent": "^3.5.2"
+    "mongoose": "^4.10.2"
   },
   "devDependencies": {
     "@types/koa": "^2.0.39",
     "@types/koa-bodyparser": "^3.0.23",
-    "@types/koa-hbs": "^1.0.1",
-    "@types/koa-mount": "^2.0.18",
     "@types/koa-router": "^7.0.22",
-    "@types/koa-static": "^2.0.22",
     "@types/mongoose": "^4.7.13",
-    "@types/simplemde": "^1.11.6",
-    "@types/superagent": "^2.0.36",
-    "browserify": "^14.3.0",
     "gulp": "^3.9.1",
-    "gulp-sourcemaps": "^2.6.0",
     "gulp-typescript": "^3.1.6",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
     "rimraf": "^2.6.1",
     "run-sequence": "^1.2.2",
-    "tsify": "^3.0.1",
     "tslint": "^5.3.2",
-    "typescript": "^2.3.3",
-    "uglify-es": "^3.0.11",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "vinyl-transform": "^1.0.0"
+    "typescript": "^2.3.3"
   }
 }

@@ -2,19 +2,10 @@
   "include": [
     "src/**/*"
   ],
-  "exclude": [
-    "src/public/**/*"
-  ],
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "lib",
     "target": "es2015",
-    "module": "commonjs",
-    "lib": [
-      "dom",
-      "es2015",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "module": "commonjs"
   }
 }

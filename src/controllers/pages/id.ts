@@ -1,5 +1,7 @@
-import Page from '../../models/page';
+import Page from '../../models/Page';
 import createError from '../../utils/createError';
+import expireStringMillisecondMap from '../../utils/expireStringMillisecondMap';
+import config from '../../config';
 
 const get = async (ctx) => {
   const id = ctx.params.id;
@@ -8,19 +10,48 @@ const get = async (ctx) => {
   }
 
   return await new Promise((resolve, reject) => {
-    Page.find({ id }, async (err, pages) => {
+    Page.find({ id }, (err, pages) => {
       if (err) {
-        return reject(err);
+        return reject(createError(400, err));
       }
+
       if (Array.isArray(pages) && pages.length > 0) {
-        await ctx.render('pages/id', {
+        const result = generatePageAPIResult({
+          id,
           content: pages[0].content,
+          created_at: pages[0].created_at,
+          expire_in: pages[0].expire_in,
         });
+
+        if (result instanceof Error) {
+          return reject(result);
+        }
+        
+        ctx.body = result;
         return resolve();
       }
+
       return reject(createError(404, 'Not Found'));
     });
   });
 };
+
+function generatePageAPIResult({ id, content, created_at, expire_in }) {
+  const createdDateNumber = Number(created_at);
+  const currentDateNumber = Number(new Date());
+  const expireNumber = expireStringMillisecondMap[expire_in];
+
+  if (createdDateNumber + expireNumber < currentDateNumber) {
+    return createError(404, 'Resource has expired');
+  }
+
+  return {
+    url: `${config.origin}/pages/${id}`,
+    html_url: `${config.origin}/pages/${id}`,
+    id,
+    content,
+    created_at,
+  };
+}
 
 export { get };
