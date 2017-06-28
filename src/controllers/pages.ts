@@ -43,8 +43,8 @@ const post = async (ctx) => {
 
   return await page.save().then((savedPage) => {
     ctx.body = {
-      url: `${config.origin}/pages/${savedPage.id}`,
-      html_url: `${config.origin}/pages/${savedPage.id}`,
+      url: `${config.api_origin}/pages/${savedPage.id}`,
+      html_url: `${config.html_origin}/pages/${savedPage.id}`,
       id: savedPage.id,
       content: savedPage.content,
       created_at: savedPage.created_at,

@@ -46,8 +46,8 @@ function generatePageAPIResult({ id, content, created_at, expire_in }) {
   }
 
   return {
-    url: `${config.origin}/pages/${id}`,
-    html_url: `${config.origin}/pages/${id}`,
+    url: `${config.api_origin}/pages/${id}`,
+    html_url: `${config.html_origin}/pages/${id}`,
     id,
     content,
     created_at,
