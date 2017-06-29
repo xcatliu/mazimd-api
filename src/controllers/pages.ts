@@ -20,9 +20,9 @@ const post = async (ctx) => {
     return await Promise.reject(createError(400, 'content is empty'));
   }
 
-  const expire_in = ctx.request.body.expire_in;
+  let expire_in = ctx.request.body.expire_in;
   if (typeof expire_in === 'undefined') {
-    return await Promise.reject(createError(400, 'expire_in is undefined'));
+    expire_in = 'forever';
   }
   if (typeof expire_in !== 'string') {
     return await Promise.reject(createError(400, 'expire_in is not a string'));

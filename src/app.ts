@@ -9,6 +9,7 @@ import config from './config';
 import connectMongoose from './utils/connectMongoose';
 
 import errorCatcher from './middlewares/errorCatcher';
+import cors from './middlewares/cors';
 
 import { get as getIndex } from './controllers/index';
 import { get as getPagesId } from './controllers/pages/id';
@@ -25,7 +26,7 @@ connectMongoose((err) => {
   const router = new Router();
   router.get('/', getIndex);
   router.get('/pages/:id', getPagesId);
-  router.post('/pages', bodyParser(), postPages);
+  router.post('/pages', cors(), bodyParser(), postPages);
 
   const app = new Koa();
 
