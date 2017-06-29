@@ -1,7 +1,8 @@
 export default () => {
     const numberString = Number(new Date()).toString();
-    const lastNumber = numberString[numberString.length - 1];
-    const slicedNumber = numberString.slice(0, numberString.length - 1);
+    const offset = 3;
+    const lastString = numberString.slice(numberString.length - offset - 1, numberString.length - 1);
+    const frontString = numberString.slice(0, numberString.length - offset);
     
-    return Number(lastNumber + slicedNumber).toString(36);
+    return Number(lastString + frontString).toString(36);
 }
