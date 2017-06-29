@@ -26,11 +26,12 @@ connectMongoose((err) => {
   const router = new Router();
   router.get('/', getIndex);
   router.get('/pages/:id', getPagesId);
-  router.post('/pages', cors(), bodyParser(), postPages);
+  router.post('/pages', bodyParser(), postPages);
 
   const app = new Koa();
 
   app.use(errorCatcher());
+  app.use(cors());
   app.use(router.routes());
 
   app.listen(config.port, () => {
