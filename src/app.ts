@@ -26,6 +26,7 @@ connectMongoose((err) => {
   const router = new Router();
   router.get('/', getIndex);
   router.get('/pages/:id', getPagesId);
+  router.options('/pages', (ctx) => { ctx.body = '' });
   router.post('/pages', bodyParser(), postPages);
 
   const app = new Koa();
