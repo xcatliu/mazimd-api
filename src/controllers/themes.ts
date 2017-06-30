@@ -50,8 +50,8 @@ async function post(ctx) {
 
       return await theme.save().then((savedTheme) => {
         ctx.body = {
-          url: `${config.api_origin}/pages/${savedTheme.id}`,
-          html_url: `${config.html_origin}/pages/${savedTheme.id}`,
+          url: `${config.api_origin}/themes/${savedTheme.id}`,
+          html_url: `${config.html_origin}/themes/${savedTheme.id}`,
           id: savedTheme.id,
           name: savedTheme.name,
           css: savedTheme.css,
