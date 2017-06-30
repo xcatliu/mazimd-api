@@ -37,7 +37,7 @@ async function post(ctx) {
       }
 
       if (Array.isArray(themes) && themes.length > 0) {
-        return reject(createError(400, '主题的名称已被占用，请换一个名称提交'));
+        return reject(createError(400, `The name "${name}" has already been taken, please use another name`));
       }
 
       const theme = new Theme({
