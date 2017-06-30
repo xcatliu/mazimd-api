@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/xcatliu/mazimd-api#readme",
   "dependencies": {
+    "get-colors-from-string": "^0.1.0",
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.2.0",

@@ -2,7 +2,7 @@ import Theme from '../models/Theme';
 import createError from '../utils/createError';
 import generateUniqueId from '../utils/generateUniqueId';
 import config from '../config';
-import getColorsFromString from '../utils/getColorsFromString';
+import getColorsFromString from 'get-colors-from-string';
 
 async function post(ctx) {
   if (!ctx.request.body) {
