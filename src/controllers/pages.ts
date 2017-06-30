@@ -4,7 +4,7 @@ import generateUniqueId from '../utils/generateUniqueId';
 import expireStringMillisecondMap from '../utils/expireStringMillisecondMap';
 import config from '../config';
 
-const post = async (ctx) => {
+async function post(ctx) {
   if (!ctx.request.body) {
     return await Promise.reject(createError(400, 'Request body is null or undefined'));
   }
@@ -36,7 +36,7 @@ const post = async (ctx) => {
 
   const page = new Page({
     id: generateUniqueId(),
-    content: ctx.request.body.content,
+    content,
     created_at: new Date(),
     expire_in,
   });

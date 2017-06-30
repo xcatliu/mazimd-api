@@ -14,6 +14,12 @@ http://api.mazimd.com
 
 ## API
 
+- [Get a page](#get-a-page)
+- [Create a page](#create-a-page)
+- [Get a theme](#get-a-theme)
+- [Create a theme](#create-a-theme)
+- [List all themes](#list-all-themes)
+
 ### Get a page
 
 ```
@@ -65,4 +71,79 @@ Status: 201 Created
   "content": "# Hello World",
   "created_at": "2017-06-28T06:56:17.244Z"
 }
+```
+
+### Get a theme
+
+```
+GET /themes/:id
+```
+
+#### Response
+
+```
+Status: 200 OK
+```
+
+```json
+{
+  "url": "http://api.mazimd.com/themes/1gyf5gloc",
+  "html_url": "http://mazimd.com/themes/1gyf5gloc",
+  "id": "1gyf5gloc",
+  "name": "Base theme",
+  "css": "p { background: yellow; }",
+  "created_at": "2017-06-28T06:56:17.244Z"
+}
+```
+
+### Create a theme
+
+```
+POST /themes
+```
+
+#### Input
+
+```json
+{
+  "name": "Base theme",
+  "css": "# Hello World"
+}
+```
+
+#### Response
+
+```
+Status: 201 Created
+```
+
+```json
+{
+  "url": "http://api.mazimd.com/themes/1gyf5gloc",
+  "html_url": "http://mazimd.com/themes/1gyf5gloc",
+  "id": "1gyf5gloc",
+  "name": "Base theme",
+  "content": "p { background: yellow; }",
+  "created_at": "2017-06-28T06:56:17.244Z"
+}
+```
+
+### List all themes
+
+```
+GET /themes
+```
+
+#### Response
+
+```json
+[
+  {
+    "url": "http://api.mazimd.com/themes/1gyf5gloc",
+    "html_url": "http://mazimd.com/themes/1gyf5gloc",
+    "id": "1gyf5gloc",
+    "name": "Base theme",
+    "created_at": "2017-06-28T06:56:17.244Z"
+  }
+]
 ```

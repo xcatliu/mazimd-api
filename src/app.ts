@@ -12,8 +12,12 @@ import errorCatcher from './middlewares/errorCatcher';
 import cors from './middlewares/cors';
 
 import { get as getIndex } from './controllers/index';
+
 import { get as getPagesId } from './controllers/pages/id';
 import { post as postPages } from './controllers/pages';
+
+import { get as getThemesId } from './controllers/themes/id';
+import { post as postThemes, get as getThemes } from './controllers/themes';
 
 connectMongoose((err) => {
   if (err) {
@@ -25,9 +29,15 @@ connectMongoose((err) => {
 
   const router = new Router();
   router.get('/', getIndex);
+
   router.get('/pages/:id', getPagesId);
   router.options('/pages', (ctx) => { ctx.body = '' });
   router.post('/pages', bodyParser(), postPages);
+
+  router.get('/themes/:id', getThemesId);
+  router.options('/themes', (ctx) => { ctx.body = '' });
+  router.post('/themes', bodyParser(), postThemes);
+  router.get('/themes', getThemes);
 
   const app = new Koa();
 

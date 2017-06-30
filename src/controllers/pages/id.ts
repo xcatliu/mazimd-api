@@ -3,7 +3,7 @@ import createError from '../../utils/createError';
 import expireStringMillisecondMap from '../../utils/expireStringMillisecondMap';
 import config from '../../config';
 
-const get = async (ctx) => {
+async function get(ctx) {
   const id = ctx.params.id;
   if (!id) {
     return await Promise.reject(createError(400, 'id is null or undefined'));
@@ -17,7 +17,7 @@ const get = async (ctx) => {
 
       if (Array.isArray(pages) && pages.length > 0) {
         const result = generatePageAPIResult({
-          id,
+          id: pages[0].id,
           content: pages[0].content,
           created_at: pages[0].created_at,
           expire_in: pages[0].expire_in,
