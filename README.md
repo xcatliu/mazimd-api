@@ -87,12 +87,12 @@ Status: 200 OK
 
 ```json
 {
-  "url": "http://api.mazimd.com/themes/1gyf5gloc",
-  "html_url": "http://mazimd.com/themes/1gyf5gloc",
-  "id": "1gyf5gloc",
-  "name": "Base theme",
-  "css": "p { background: yellow; }",
-  "created_at": "2017-06-28T06:56:17.244Z"
+  "url": "http://api.mazimd.com/themes/y7v359y4",
+  "html_url": "http://mazimd.com/themes/y7v359y4",
+  "id": "y7v359y4",
+  "name": "Test theme",
+  "css": "h1 { background: red; }",
+  "created_at": "2017-06-30T03:08:12.688Z"
 }
 ```
 
@@ -119,12 +119,12 @@ Status: 201 Created
 
 ```json
 {
-  "url": "http://api.mazimd.com/themes/1gyf5gloc",
-  "html_url": "http://mazimd.com/themes/1gyf5gloc",
-  "id": "1gyf5gloc",
-  "name": "Base theme",
-  "content": "p { background: yellow; }",
-  "created_at": "2017-06-28T06:56:17.244Z"
+  "url": "http://api.mazimd.com/themes/y7v359y4",
+  "html_url": "http://mazimd.com/themes/y7v359y4",
+  "id": "y7v359y4",
+  "name": "Test theme",
+  "css": "h1 { background: red; }",
+  "created_at": "2017-06-30T03:08:12.688Z"
 }
 ```
 
@@ -139,11 +139,11 @@ GET /themes
 ```json
 [
   {
-    "url": "http://api.mazimd.com/themes/1gyf5gloc",
-    "html_url": "http://mazimd.com/themes/1gyf5gloc",
-    "id": "1gyf5gloc",
-    "name": "Base theme",
-    "created_at": "2017-06-28T06:56:17.244Z"
+    "url": "http://api.mazimd.com/themes/y7v359y4",
+    "html_url": "http://mazimd.com/themes/y7v359y4",
+    "id": "y7v359y4",
+    "name": "Test theme",
+    "created_at": "2017-06-30T03:08:12.688Z"
   }
 ]
 ```
