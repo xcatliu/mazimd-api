@@ -2,6 +2,7 @@ import Theme from '../models/Theme';
 import createError from '../utils/createError';
 import generateUniqueId from '../utils/generateUniqueId';
 import config from '../config';
+import getColorsFromString from '../utils/getColorsFromString';
 
 async function post(ctx) {
   if (!ctx.request.body) {
@@ -54,6 +55,7 @@ async function post(ctx) {
           id: savedTheme.id,
           name: savedTheme.name,
           css: savedTheme.css,
+          colors: getColorsFromString(theme.css),
           created_at: savedTheme.created_at,
         };
         // 201 Created
@@ -80,6 +82,7 @@ async function get(ctx) {
             html_url: `${config.html_origin}/themes/${theme.id}`,
             id: theme.id,
             name: theme.name,
+            colors: getColorsFromString(theme.css),
             created_at: theme.created_at,
           };
         });

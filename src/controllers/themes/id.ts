@@ -1,6 +1,7 @@
 import Theme from '../../models/Theme';
 import createError from '../../utils/createError';
 import config from '../../config';
+import getColorsFromString from '../../utils/getColorsFromString';
 
 async function get(ctx) {
   const id = ctx.params.id;
@@ -21,6 +22,7 @@ async function get(ctx) {
           id: themes[0].id,
           name: themes[0].name,
           css: themes[0].css,
+          colors: getColorsFromString(themes[0].css),
           created_at: themes[0].created_at,
         };
         return resolve();
