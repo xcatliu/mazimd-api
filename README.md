@@ -1,5 +1,7 @@
 # mazimd-api
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/xcatliu/mazimd-api.svg)](https://greenkeeper.io/)
+
 The api server for mazimd
 
 http://api.mazimd.com
