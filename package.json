@@ -25,18 +25,18 @@
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.2.0",
-    "mongoose": "^4.10.2"
+    "mongoose": "^5.5.5"
   },
   "devDependencies": {
     "@types/koa": "^2.0.39",
-    "@types/koa-bodyparser": "^3.0.23",
+    "@types/koa-bodyparser": "^4.2.2",
     "@types/koa-router": "^7.0.22",
-    "@types/mongoose": "^4.7.13",
-    "gulp": "^3.9.1",
-    "gulp-typescript": "^3.1.6",
+    "@types/mongoose": "^5.3.27",
+    "gulp": "^4.0.1",
+    "gulp-typescript": "^5.0.1",
     "rimraf": "^2.6.1",
-    "run-sequence": "^1.2.2",
+    "run-sequence": "^2.2.1",
     "tslint": "^5.3.2",
-    "typescript": "^2.3.3"
+    "typescript": "^3.4.5"
   }
 }
